@@ -39,4 +39,4 @@ _UpgradeReport_Files/
 
 
 # wwwroot HTML, CSS, JavaScript, and image files
-wwwroot/
+#wwwroot/
