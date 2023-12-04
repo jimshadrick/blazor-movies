@@ -11,8 +11,9 @@ public class PopularMovie
     public string? BackdropPath { get; set; }
     
     [JsonPropertyName("genre_ids")]
-    public int[] GenreIds { get; set; } = [];
-    
+    //public int[] GenreIds { get; set; } = []; // revert back to this after the next .NET 8 update
+    public int[] GenreIds { get; set; } = null!;
+
     [JsonPropertyName("id")]
     public int Id { get; set; }
     
