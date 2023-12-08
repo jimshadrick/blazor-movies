@@ -17,9 +17,13 @@ public class TMDBClient
         _httpClient.DefaultRequestHeaders.Authorization = new("Bearer", apiKey);
     }
 
-    public Task<PopularMoviePagedResponse?> GetPopularMoviesAsync()
+    public Task<PopularMoviePagedResponse?> GetPopularMoviesAsync(int page = 1)
     {
-        return _httpClient.GetFromJsonAsync<PopularMoviePagedResponse>("movie/popular");
+        // Validate page values
+        if (page < 1) page = 1;
+        if (page > 500) page = 500; // TMBD only supports up to 500 pages
+        
+        return _httpClient.GetFromJsonAsync<PopularMoviePagedResponse>($"movie/popular?page={page}");
     }
 
     public Task<MovieDetails?> GetMovieDetailsAsync(int Id)

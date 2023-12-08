@@ -1,0 +1,4 @@
+.rounded-pill {
+    /*make all sides of pill equal to create rounded effect*/
+    aspect-ratio: 1;   
+}
